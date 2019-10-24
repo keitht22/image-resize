@@ -7,7 +7,7 @@ def main():
     # creates directory for formatted images to be sent to
     # this option is more favorable than overwriting the images
     try:
-        if not os.path.isfile('/Users/tylerkeith/Documents/Research/Destination for Formatted'):
+        if not os.path.isfile('path/to/directory/folder-to-save-in'):
             makeDestDir()
             imageResize()
     except FileExistsError:
@@ -16,8 +16,8 @@ def main():
 
 def makeDestDir():
 
-    directory = "Destination for Formatted"
-    path = "/Users/tylerkeith/Documents/Research"
+    directory = "folder-to-save-in"
+    path = "/path/to/directory"
     fullpath = os.path.join(path, directory)
     os.mkdir(fullpath)
 
@@ -26,7 +26,7 @@ def imageResize():
 
     # changes the working directory to the copied version
     # of our gathered data sets
-    dirlist = os.listdir('Data Sets for Testing copy 2')
+    dirlist = os.listdir('folder with images')
 
     # iterates over each .png or .jpg image file in the directory
     for c, file in enumerate(dirlist):
@@ -37,13 +37,13 @@ def imageResize():
             clustnum = int(tokens[1].split(".")[0])
             filect = str(c) + '_' + str(clustnum)
             print(clustnum)
-            pic = 'Data Sets for Testing copy' + os.path.sep + file
+            pic = 'folder with images' + os.path.sep + file
             imgread = cv2.imread(pic)
 
             # the creation of our resized images
             # and the movement of said images to our destination directory
             img = cv2.resize(imgread, (500, 500))
-            cv2.imwrite('/Users/tylerkeith/Documents/Research/Destination for Formatted/' + filect + '.jpg', img)
+            cv2.imwrite('/path/to/directory/folder-to-save-in' + filect + '.jpg', img)
 
 
 if __name__ == '__main__':
