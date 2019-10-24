@@ -36,7 +36,6 @@ def imageResize():
             tokens = file.split('_')
             clustnum = int(tokens[1].split(".")[0])
             filect = str(c) + '_' + str(clustnum)
-            print(clustnum)
             pic = 'folder with images' + os.path.sep + file
             imgread = cv2.imread(pic)
 
@@ -48,3 +47,4 @@ def imageResize():
 
 if __name__ == '__main__':
     main()
+    return True
